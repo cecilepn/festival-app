@@ -12,12 +12,16 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+h1,
+h2,
+p {
   margin: 0;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 button {
@@ -100,6 +104,23 @@ h1 {
   display: flex;
 }
 
+.gap-xs {
+  gap: 10px;
+}
+.gap-s {
+  gap: 20px;
+}
 .gap-m {
   gap: 30px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: #d9ff66 solid 1px;
+  border-radius: 10px;
+  padding: 24px;
 }

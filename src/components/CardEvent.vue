@@ -1,17 +1,17 @@
 <script setup lang="ts">
   import type { FestivalEvent } from '../data/events'
-
   defineProps<{
     event: FestivalEvent
   }>()
 </script>
 
 <template>
-  <div>
-    <h2>{{ event.title }}</h2>
-    <p>{{ event.day }}</p>
-    <p>{{ event.time }}</p>
-    <p>{{ event.venue }}</p>
+  <a :href="`events/${event.id}`" class="card flex-col gap-s">
+    <div class="flex-col gap-xs">
+      <h2>{{ event.title }}</h2>
+      <p class="eyebrow">{{ event.day }}, {{ event.time }}</p>
+    </div>
     <p>{{ event.category }}</p>
-  </div>
+    <p>{{ event.venue }}</p>
+  </a>
 </template>
