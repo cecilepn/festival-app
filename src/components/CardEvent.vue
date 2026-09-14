@@ -17,7 +17,7 @@
     </div>
     <p>{{ event.category }}</p>
     <p>{{ event.venue }}</p>
-    <p v-if="featured" class="highlight-card__featured">Mis en avant</p>
+    <p v-if="featured" class="highlight-card__featured">Temps fort</p>
   </a>
 </template>
 
