@@ -1,7 +1,9 @@
-<script setup>
-  defineProps({
-    event: Object
-  })
+<script setup lang="ts">
+  import type { FestivalEvent } from '../data/events'
+
+  defineProps<{
+    event: FestivalEvent
+  }>()
 </script>
 
 <template>
