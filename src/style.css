@@ -21,7 +21,6 @@ p {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 button {
@@ -117,10 +116,4 @@ h1 {
 .flex-col {
   display: flex;
   flex-direction: column;
-}
-
-.card {
-  border: #d9ff66 solid 1px;
-  border-radius: 10px;
-  padding: 24px;
 }

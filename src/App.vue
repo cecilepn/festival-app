@@ -24,8 +24,15 @@
       <button @click="isIntroVisible = !isIntroVisible">En savoir plus</button>
       <p v-if="isIntroVisible" class="intro">je suis l'info en savoir plus</p>
     </section>
-    <section class="flex gap-m">
-      <CardEvent v-for="event in events" :event="event" :key="event.id" />
+    <section>
+      <div v-if="events.length" class="flex gap-m">
+        <CardEvent
+          v-for="(event, e) in events"
+          :event="event"
+          :key="event.id"
+          :featured="e === 0" />
+      </div>
+      <p v-else>No event</p>
     </section>
   </main>
 </template>
