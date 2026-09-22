@@ -1,38 +1,39 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import CardEvent from './components/CardEvent.vue'
-  import { events } from './data/events.ts'
-  const festival = {
-    name: 'Festival',
-    promise: 'Le meilleur'
+  import { onMounted, ref } from 'vue'
+
+  import { supabase } from './lib/supabaseClient'
+
+  type Instrument = {
+    id: number
+    name: string
   }
-  const isIntroVisible = ref(false)
+
+  const instruments = ref<Instrument[]>([])
+  const error = ref<string | null>(null)
+
+  async function getInstruments() {
+    const { data, error: fetchError } = await supabase
+      .from('instruments')
+      .select()
+
+    if (fetchError) {
+      error.value = fetchError.message
+      return
+    }
+
+    instruments.value = data
+  }
+
+  onMounted(() => {
+    getInstruments()
+  })
 </script>
 
 <template>
-  <header class="site-header">
-    <a class="brand" href="#">{{ festival.name }}</a>
-    <nav aria-label="Navigation principale">
-      <a href="#highlights">Programmation</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <p class="eyebrow">Festival associatif · 12–13 juin</p>
-      <h1>{{ festival.promise }}</h1>
-      <button @click="isIntroVisible = !isIntroVisible">En savoir plus</button>
-      <p v-if="isIntroVisible" class="intro">je suis l'info en savoir plus</p>
-    </section>
-    <section>
-      <div v-if="events.length" class="flex gap-m">
-        <CardEvent
-          v-for="(event, e) in events"
-          :event="event"
-          :key="event.id"
-          :featured="e === 0" />
-      </div>
-      <p v-else>No event</p>
-    </section>
-  </main>
+  <p v-if="error">Error loading instruments: {{ error }}</p>
+  <ul v-else>
+    <li v-for="instrument in instruments" :key="instrument.id">
+      {{ instrument.name }}
+    </li>
+  </ul>
 </template>
