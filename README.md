@@ -1,5 +1,44 @@
-# Vue 3 + TypeScript + Vite
+# Festival Éclosion
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Application web du festival fictif **Éclosion**, réalisée dans le cadre du master 2 Développement à l’ECV. Le projet est construit avec Vue 3 et Vite, et communique avec Supabase et Prismic pour récupérer des données.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Technologies
+
+- [Vue 3](https://vuejs.org/) — interface utilisateur
+- [Vite](https://vite.dev/) — environnement de développement et build
+- [TypeScript](https://www.typescriptlang.org/) — typage du code Vue
+- [Supabase](https://supabase.com/) — accès aux données
+- [Vitest](https://vitest.dev/) et Vue Test Utils — tests de composants
+- [Prismic](https://prismic.io/docs) - accès aux contenus dynamiques
+- CSS natif et police locale Quasimoda
+
+## Scripts
+
+| Commande          | Description                                                          |
+| ----------------- | -------------------------------------------------------------------- |
+| `npm run dev`     | Lance le serveur de développement Vite.                              |
+| `npm run build`   | Vérifie les types puis génère la version de production dans `dist/`. |
+| `npm run preview` | Prévisualise localement le build de production.                      |
+| `npm run test`    | Exécute les tests Vitest.                                            |
+
+## Structure du projet
+
+```text
+src/
+├── App.vue
+├── main.ts
+├── global.css                 # Styles globaux
+├── assets/
+│   ├── fonts/                 # Fichiers de la typographie Quasimoda
+│   └── styles/                # Reset, typographie, accessibilité et utilitaires CSS
+├── components/                # Composants
+└── lib/supabaseClient.js      # Initialisation du client Supabase
+```
+
+## Fonctionnalités actuelles
+
+-
+
+## Auteur
+
+[Cécile PHAN NGUYEN](https://github.com/cecilepn) — Développement

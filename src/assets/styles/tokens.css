@@ -1,0 +1,24 @@
+:root {
+  /* Grille desktop — design tokens Figma */
+  --grid-desktop-columns: 8;
+  --grid-desktop-gutter: 24px;
+  --grid-desktop-offset: 32px;
+
+  /* Typographies — design tokens Figma */
+  --font-size-heading-1: 60px;
+  --line-height-heading-1: 64px;
+  --font-size-heading-1-semi-bold: 40px;
+  --line-height-heading-1-semi-bold: 38px;
+  --font-size-heading-2: 40px;
+  --line-height-heading-2: 44px;
+  --font-size-heading-3: 32px;
+  --line-height-heading-3: 36px;
+  --font-size-large: 20px;
+  --line-height-large: 24px;
+  --font-size-medium: 16px;
+  --line-height-medium: 20px;
+  --font-size-small: 14px;
+  --line-height-small: 16px;
+  --font-size-label: 12px;
+  --line-height-label: 14px;
+}

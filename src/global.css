@@ -1,0 +1,50 @@
+@import url('./assets/styles/index.css');
+
+/* Variables globales */
+:root {
+  --color-primary: var(--color-blue-500);
+  --color-secondary: var(--color-pink-500);
+  --color-tertiary: var(--color-green-500);
+  --color-neutral: var(--color-base-grey);
+  --color-white: var(--color-base-white);
+  --color-black: var(--color-base-black);
+  --color-success: var(--color-success-600);
+  --color-error: var(--color-error-600);
+
+  --font-quasimoda: 'Quasimoda', sans-serif;
+}
+
+body {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-medium);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: all 0.8s ease;
+}
+
+.button-link {
+  background: var(--color-white);
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
+  border-radius: 0.5rem;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.button-link:hover,
+.button-link:focus {
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border-color: var(--color-white);
+}
