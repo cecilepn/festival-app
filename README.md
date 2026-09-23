@@ -34,7 +34,7 @@ src/
 ├── components/                # Composants
 └── lib/
     ├── prismicClient.ts       # Initialisation du client Prismic
-    └── supabaseClient.js      # Initialisation du client Supabase
+    └── supabaseClient.ts      # Initialisation du client Supabase
 ```
 
 ## Configuration
