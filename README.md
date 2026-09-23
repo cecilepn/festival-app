@@ -32,8 +32,20 @@ src/
 │   ├── fonts/                 # Fichiers de la typographie Quasimoda
 │   └── styles/                # Reset, typographie, accessibilité et utilitaires CSS
 ├── components/                # Composants
-└── lib/supabaseClient.js      # Initialisation du client Supabase
+└── lib/
+    ├── prismicClient.ts       # Initialisation du client Prismic
+    └── supabaseClient.js      # Initialisation du client Supabase
 ```
+
+## Configuration
+
+Copiez `.env.example` vers `.env`, puis renseignez les variables Supabase et le nom du dépôt Prismic (`VITE_PRISMIC_REPOSITORY_NAME`). Le nom du dépôt correspond à son identifiant dans l’URL Prismic. Le client Prismic est exporté depuis `src/lib/prismicClient.ts` et peut être utilisé dans les composants pour interroger les documents.
+
+## Navigation et pages Prismic
+
+La navigation utilise Vue Router (`src/router/index.ts`). Les vues sont dans `src/views/` et le composant racine affiche la vue courante avec `<RouterView />`. Pour relier des pages Prismic aux URL, ajoutez une route dynamique correspondant au type de document choisi (par exemple `/pages/:uid`) et chargez le document par UID.
+
+Les zones de slices se rendent avec `<SliceZone>` de `@prismicio/vue`. Créez un composant Vue par slice dans `src/slices/` puis associez les noms machine des slices aux composants dans `defineSliceZoneComponents`. Les champs simples du document peuvent être rendus séparément avec `<PrismicRichText>` et `<PrismicImage>`. Les noms de types, UID et slices doivent correspondre aux modèles définis dans Prismic.
 
 ## Fonctionnalités actuelles
 
