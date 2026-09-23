@@ -1,0 +1,55 @@
+:root {
+  /* Palettes — design tokens Figma */
+  --color-blue-50: #ecf5fe;
+  --color-blue-100: #d5e9fe;
+  --color-blue-200: #bddeff;
+  --color-blue-300: #89c4fe;
+  --color-blue-400: #56aafd;
+  --color-blue-500: #248ffb;
+  --color-blue-600: #0675e5;
+  --color-blue-700: #065bb1;
+  --color-blue-800: #05417d;
+  --color-blue-900: #03274a;
+  --color-blue-950: #010d18;
+
+  --color-pink-50: #feecf5;
+  --color-pink-100: #fed5e9;
+  --color-pink-200: #ffbdde;
+  --color-pink-300: #fe89c4;
+  --color-pink-400: #fd56aa;
+  --color-pink-500: #fb248f;
+  --color-pink-600: #e50675;
+  --color-pink-700: #b1065b;
+  --color-pink-800: #7d0541;
+  --color-pink-900: #4a0327;
+  --color-pink-950: #18010d;
+
+  --color-green-50: #f5feec;
+  --color-green-100: #e9fed5;
+  --color-green-200: #deffbd;
+  --color-green-300: #c4fe89;
+  --color-green-400: #aafd56;
+  --color-green-500: #8ffb24;
+  --color-green-600: #75e506;
+  --color-green-700: #5bb106;
+  --color-green-800: #417d05;
+  --color-green-900: #274a03;
+  --color-green-950: #0d1801;
+
+  --color-base-black: #000;
+  --color-base-white: #fff;
+  --color-base-transparent: transparent;
+  --color-base-grey: #707275;
+
+  --color-success-50: #f6fef9;
+  --color-success-200: #dcfae6;
+  --color-success-400: #47cd89;
+  --color-success-600: #079455;
+  --color-success-800: #085d3a;
+
+  --color-error-50: #fffbfa;
+  --color-error-200: #fee4e2;
+  --color-error-400: #f3877f;
+  --color-error-600: #d92d20;
+  --color-error-800: #912018;
+}

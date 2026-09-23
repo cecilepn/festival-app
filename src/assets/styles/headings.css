@@ -1,0 +1,150 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  margin: 0;
+}
+
+h1,
+.h1 {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-heading-1);
+  line-height: var(--line-height-heading-1);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.h1-semi-bold {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-heading-1-semi-bold);
+  line-height: var(--line-height-heading-1-semi-bold);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h2,
+.h2 {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-heading-2);
+  line-height: var(--line-height-heading-2);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.h2-semi-bold {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-heading-2);
+  line-height: var(--line-height-heading-2);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h3,
+.h3 {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-heading-3);
+  line-height: var(--line-height-heading-3);
+  font-weight: 600;
+}
+
+.h3-regular {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-heading-3);
+  line-height: var(--line-height-heading-3);
+  font-weight: 400;
+}
+
+.body-l {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-large);
+  line-height: var(--line-height-large);
+  font-weight: 400;
+}
+
+.body-l-semi-bold {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-large);
+  line-height: var(--line-height-large);
+  font-weight: 600;
+}
+
+.body-m {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-medium);
+  font-weight: 400;
+}
+
+.body-m-semi-bold {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-medium);
+  font-weight: 600;
+}
+
+.body-s {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  font-weight: 400;
+}
+
+.body-s-semi-bold {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  font-weight: 600;
+}
+
+.label,
+button,
+.link {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+  font-weight: 400;
+}
+
+.label-semi-bold {
+  font-family: var(--font-quasimoda);
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+  font-weight: 600;
+}
+
+/* text */
+
+.text-black {
+  color: var(--color-black);
+}
+.text-white {
+  color: var(--color-white);
+}
+.font-quasimoda {
+  font-family: var(--font-quasimoda);
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-italic {
+  font-style: italic;
+}
+.text-center {
+  text-align: center;
+}
+.text-sm {
+  font-size: 0.875rem;
+}
+.text-base {
+  font-size: 1rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+}
