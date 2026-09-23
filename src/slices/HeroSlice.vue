@@ -5,7 +5,7 @@
   defineProps<{
     slice: {
       primary: {
-        eyebrow_text: RichTextField
+        eyebrow: RichTextField
         main_title: RichTextField
         description: RichTextField
         bg_image: ImageField
@@ -21,7 +21,7 @@
       :field="slice.primary.bg_image"
       class="hero__image" />
     <div class="hero__content">
-      <PrismicRichText :field="slice.primary.eyebrow_text" />
+      <PrismicRichText :field="slice.primary.eyebrow" />
       <PrismicRichText :field="slice.primary.main_title" />
       <PrismicRichText :field="slice.primary.description" />
     </div>
