@@ -32,7 +32,7 @@ onMounted(async () => {
     <p v-else-if="error" role="alert">Erreur lors du chargement : {{ error }}</p>
     <SliceZone
       v-else-if="homepage"
-      :slices="homepage.data.body"
+      :slices="homepage.data.slices"
       :components="components"
     />
     <p v-else>Aucun contenu disponible pour la page d’accueil.</p>
