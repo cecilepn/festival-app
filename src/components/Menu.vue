@@ -53,7 +53,7 @@
       <Button
         v-if="ticketItem"
         to="/billetterie"
-        variant="secondary"
+        variant="primary"
         class="body-s-semi-bold">
         {{ ticketItem.text }}
       </Button>
