@@ -35,12 +35,12 @@
     <nav
       v-if="menu"
       aria-label="Navigation principale"
-      class="menu flex gap-32">
+      class="menu flex gap-32 justify-between">
       <a href="/">
         <img src="/logo.png" alt="" />
       </a>
       <div
-        class="menu__links flex items-center w-full body-s-semi-bold justify-around">
+        class="menu__links flex items-center w-fit body-s-semi-bold gap-48 justify-center">
         <template
           v-for="(item, index) in navigationItems"
           :key="item.key ?? index">
@@ -72,5 +72,6 @@
   .menu__links {
     border: solid 2px var(--color-black);
     border-radius: var(--spacing-32);
+    padding: 0px var(--spacing-64);
   }
 </style>
