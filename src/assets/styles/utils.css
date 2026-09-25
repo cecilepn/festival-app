@@ -150,6 +150,12 @@
 .gap-64 {
   gap: var(--spacing-64);
 }
+.gap-72 {
+  gap: var(--spacing-72);
+}
+.gap-80 {
+  gap: var(--spacing-80);
+}
 
 /* Flex & Grid */
 .flex {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { isFilled } from '@prismicio/client'
+  import { isFilled, type LinkField } from '@prismicio/client'
   import { PrismicLink } from '@prismicio/vue'
   import { computed } from 'vue'
   import Button from './Button.vue'
@@ -9,12 +9,13 @@
 
   const menu = ref<Awaited<ReturnType<typeof prismic.getSingle>> | null>(null)
   const error = ref<string | null>(null)
-  const navigationItems = computed(
-    () =>
-      menu.value?.data.link.filter(item => item.text !== 'Billetterie') ?? []
+  type MenuItem = LinkField & { text?: string; key?: string }
+  const menuItems = computed(() => (menu.value?.data.link ?? []) as MenuItem[])
+  const navigationItems = computed(() =>
+    menuItems.value.filter(item => item.text !== 'Billetterie')
   )
   const ticketItem = computed(() =>
-    menu.value?.data.link.find(item => item.text === 'Billetterie')
+    menuItems.value.find(item => item.text === 'Billetterie')
   )
 
   onMounted(async () => {
@@ -65,7 +66,7 @@
 
 <style scoped>
   .menu {
-    padding: var(--spacing-16) var(--spacing-32);
+    padding: var(--spacing-32);
   }
 
   .menu__links {
