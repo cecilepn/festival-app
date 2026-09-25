@@ -26,13 +26,14 @@
     :class="`button--${variant}`"
     :type="type"
     :disabled="disabled">
-    <slot>Button</slot>
+    <slot />
   </button>
 </template>
 
 <style scoped>
   .button {
-    padding: 1rem 2.5rem;
+    height: fit-content;
+    padding: var(--spacing-16) var(--spacing-32);
     border: 2px solid #061407;
     border-radius: 999px;
     background: var(--color-blue-200);
@@ -61,6 +62,13 @@
     background-color: var(--color-white);
     border: 2px solid var(--color-blue-500);
     color: var(--color-blue-500);
+    box-shadow: 0px 0px 0 #0b2005;
+  }
+
+  .button--secondary:hover:not(:disabled) {
+    background-color: var(--color-blue-400);
+    border: 2px solid var(--color-blue-400);
+    color: var(--color-white);
     box-shadow: 0px 0px 0 #0b2005;
   }
 

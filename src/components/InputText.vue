@@ -16,8 +16,8 @@
     {
       type: 'text',
       required: false,
-      disabled: false,
-    },
+      disabled: false
+    }
   )
 
   const model = defineModel<string>({ default: '' })
@@ -26,7 +26,7 @@
 </script>
 
 <template>
-  <div class="input-text">
+  <div class="input-text flex flex-col gap-8">
     <label class="input-text__label" :for="inputId">{{ label }}</label>
     <input
       :id="inputId"
@@ -39,8 +39,7 @@
       :required="required"
       :disabled="disabled"
       :aria-invalid="Boolean(error)"
-      :aria-describedby="error ? errorId : undefined"
-    />
+      :aria-describedby="error ? errorId : undefined" />
     <p v-if="error" :id="errorId" class="input-text__error" role="alert">
       {{ error }}
     </p>
@@ -48,12 +47,6 @@
 </template>
 
 <style scoped>
-  .input-text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-8);
-  }
-
   .input-text__label {
     color: var(--color-black);
     font-size: var(--font-size-medium);
@@ -64,8 +57,8 @@
     width: 100%;
     min-height: 48px;
     padding: var(--spacing-8) var(--spacing-16);
-    border: 2px solid var(--color-black);
-    border-radius: 999px;
+    border: 2px solid var(--color-primary);
+    border-radius: 24px;
     background: var(--color-white);
     color: var(--color-black);
     font: inherit;
