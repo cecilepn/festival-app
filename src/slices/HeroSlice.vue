@@ -20,7 +20,7 @@
       v-if="slice.primary.bg_image"
       :field="slice.primary.bg_image"
       class="hero__image" />
-    <div class="hero__content flex flex-col items-center">
+    <div class="hero__content flex flex-col items-center gap-24">
       <PrismicRichText :field="slice.primary.eyebrow" />
       <PrismicRichText :field="slice.primary.main_title" />
       <PrismicRichText :field="slice.primary.description" />
