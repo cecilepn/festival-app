@@ -3,12 +3,14 @@ import { defineSliceZoneComponents, SliceZone } from '@prismicio/vue'
 import { onMounted, ref, watch } from 'vue'
 
 import HeroSlice from '../slices/HeroSlice.vue'
+import PublishedContentSlice from '../slices/PublishedContentSlice.vue'
 import { prismic } from '../lib/prismicClient'
 
 const props = defineProps<{ uid: string }>()
 
 const components = defineSliceZoneComponents({
   hero: HeroSlice,
+  published_content: PublishedContentSlice,
 })
 
 type PrismicPage = Awaited<ReturnType<typeof prismic.getByUID>>

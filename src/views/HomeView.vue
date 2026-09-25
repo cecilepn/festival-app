@@ -3,11 +3,13 @@
   import { onMounted, ref } from 'vue'
 
   import HeroSlice from '../slices/HeroSlice.vue'
+  import PublishedContentSlice from '../slices/PublishedContentSlice.vue'
   import { prismic } from '../lib/prismicClient'
   import Button from '../components/Button.vue'
 
   const components = defineSliceZoneComponents({
-    hero: HeroSlice
+    hero: HeroSlice,
+    published_content: PublishedContentSlice,
   })
 
   const homepage = ref<Awaited<ReturnType<typeof prismic.getSingle>> | null>(

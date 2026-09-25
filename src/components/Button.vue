@@ -6,7 +6,7 @@
       type?: 'button' | 'submit' | 'reset'
       disabled?: boolean
       to?: string
-      variant?: 'primary'
+      variant?: 'primary' | 'filter' | 'filter-active'
     }>(),
     {
       type: 'button',
@@ -44,7 +44,6 @@
     align-items: center;
     justify-content: center;
     transition:
-      transform 120ms ease,
       box-shadow 120ms ease,
       background-color 120ms ease;
   }
@@ -61,8 +60,26 @@
     background: var(--color-blue-400);
   }
 
+  .button--filter,
+  .button--filter-active {
+    padding: var(--spacing-8) var(--spacing-32);
+    border: 1px solid var(--color-base-black);
+    background: var(--color-base-white);
+    box-shadow: none;
+    white-space: nowrap;
+  }
+
+  .button--filter:hover:not(:disabled),
+  .button--filter-active:hover:not(:disabled) {
+    background: var(--color-base-white);
+  }
+
+  .button--filter-active {
+    border: 2px solid var(--color-blue-300);
+    color: var(--color-blue-500);
+  }
+
   .button:active:not(:disabled) {
-    transform: translate(6px, 5px);
     box-shadow: 7px 5px 0 #0b2005;
   }
 
