@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import { defineSliceZoneComponents, SliceZone } from '@prismicio/vue'
 import { onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
 
 import HeroSlice from '../slices/HeroSlice.vue'
 import { prismic } from '../lib/prismicClient'
 
-const route = useRoute()
-const components = defineSliceZoneComponents({ hero: HeroSlice })
-const page = ref<Awaited<ReturnType<typeof prismic.getByUID>> | null>(null)
+const props = defineProps<{ uid: string }>()
+
+const components = defineSliceZoneComponents({
+  hero: HeroSlice,
+})
+
+type PrismicPage = Awaited<ReturnType<typeof prismic.getByUID>>
+
+const page = ref<PrismicPage | null>(null)
 const loading = ref(true)
 const error = ref<string | null>(null)
 
@@ -28,8 +33,8 @@ async function loadPage(uid: string) {
   }
 }
 
-onMounted(() => loadPage(String(route.params.uid)))
-watch(() => route.params.uid, (uid) => loadPage(String(uid)))
+onMounted(() => loadPage(props.uid))
+watch(() => props.uid, (uid) => loadPage(uid))
 </script>
 
 <template>
@@ -41,6 +46,6 @@ watch(() => route.params.uid, (uid) => loadPage(String(uid)))
       :slices="page.data.slices"
       :components="components"
     />
-    <p v-else>Cette page est introuvable.</p>
+    <p v-else>Cette page ne contient pas de contenu.</p>
   </main>
 </template>

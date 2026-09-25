@@ -11,6 +11,10 @@ if (!repositoryName) {
 export const prismic = createClient(repositoryName, {
   routes: [
     {
+      type: 'homepage',
+      path: '/',
+    },
+    {
       type: 'template_page',
       path: '/:uid',
     },

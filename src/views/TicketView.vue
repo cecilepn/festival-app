@@ -3,5 +3,5 @@ import PrismicTemplatePage from '../components/PrismicTemplatePage.vue'
 </script>
 
 <template>
-  <PrismicTemplatePage uid="infos-pratique" />
+  <PrismicTemplatePage uid="billetterie" />
 </template>

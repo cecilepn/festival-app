@@ -20,7 +20,7 @@
       v-if="slice.primary.bg_image"
       :field="slice.primary.bg_image"
       class="hero__image" />
-    <div class="hero__content">
+    <div class="hero__content flex flex-col items-center">
       <PrismicRichText :field="slice.primary.eyebrow" />
       <PrismicRichText :field="slice.primary.main_title" />
       <PrismicRichText :field="slice.primary.description" />
@@ -46,8 +46,8 @@
   }
 
   .hero__content {
-    position: relative;
     z-index: 1;
     padding: 2rem;
+    color: var(--color-white);
   }
 </style>

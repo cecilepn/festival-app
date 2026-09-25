@@ -21,9 +21,12 @@
 </script>
 
 <template>
-  <header class="site-header">
-    <nav v-if="menu" aria-label="Navigation principale">
-      <ul class="site-menu">
+  <header>
+    <nav v-if="menu" aria-label="Navigation principale" class="menu flex">
+      <a href="/">
+        <img src="/logo.png" alt="" />
+      </a>
+      <ul class="links flex justify-around items-center w-full">
         <li v-for="(item, index) in menu.data.link" :key="item.key ?? index">
           <PrismicLink v-if="isFilled.link(item)" :field="item">
             {{ item.text }}
@@ -32,33 +35,14 @@
         </li>
       </ul>
     </nav>
+    <p v-else-if="error" role="alert" class="site-menu__error">
+      {{ error }}
+    </p>
   </header>
 </template>
 
 <style scoped>
-  .site-header {
-    padding: 1rem 2rem;
-  }
-
-  .site-menu {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .site-menu a {
-    color: inherit;
-  }
-
-  .site-menu span {
-    color: inherit;
-  }
-
-  .site-header__error {
-    margin: 0;
+  .menu {
+    padding: var(--spacing-16) var(--spacing-32);
   }
 </style>

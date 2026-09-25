@@ -9,9 +9,24 @@ const router = createRouter({
       component: () => import('../views/HomeView.vue'),
     },
     {
-      path: '/:uid',
-      name: 'prismic-page',
-      component: () => import('../views/PrismicPageView.vue'),
+      path: '/infos-pratique',
+      name: 'infos-pratique',
+      component: () => import('../views/InfoView.vue'),
+    },
+    {
+      path: '/programmation',
+      name: 'programmation',
+      component: () => import('../views/ProgrammationView.vue'),
+    },
+    {
+      path: '/billetterie',
+      name: 'billetterie',
+      component: () => import('../views/TicketView.vue'),
+    },
+    {
+      path: '/notre-histoire',
+      name: 'notre-histoire',
+      component: () => import('../views/StoryView.vue'),
     },
     {
       path: '/:pathMatch(.*)*',
