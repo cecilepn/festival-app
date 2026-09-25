@@ -31,7 +31,7 @@
 <style scoped>
   .hero {
     position: relative;
-    min-height: 60vh;
+    min-height: 80vh;
     display: grid;
     align-items: center;
     overflow: hidden;

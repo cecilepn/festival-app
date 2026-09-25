@@ -78,6 +78,28 @@
         </div>
       </div>
     </section>
+
+    <section class="histoire flex justify-between items-center">
+      <div class="w-half flex flex-col gap-32">
+        <h2>Notre histoire</h2>
+        <p>
+          Le festival Éclosion, né de l'initiative de l'association La CLEF, est
+          un événement vibrant qui célèbre la créativité et l'innovation. Chaque
+          année, il attire des artistes et des passionnés de tous horizons,
+          offrant une plateforme pour des performances, des ateliers et des
+          expositions. Éclosion est un véritable carrefour culturel où les idées
+          prennent vie et où la communauté se rassemble pour partager des
+          moments inoubliables.
+        </p>
+        <Button
+          to="/notre-histoire"
+          variant="primary"
+          class="body-s-semi-bold w-fit">
+          En savoir plus
+        </Button>
+      </div>
+      <img src="/hero-histoire.png" alt="" />
+    </section>
   </main>
 </template>
 
@@ -86,6 +108,10 @@
     padding: var(--spacing-80) 0;
   }
   .billetterie {
+    padding-bottom: var(--spacing-80);
+  }
+  .histoire {
+    padding: 0 var(--spacing-32);
     padding-bottom: var(--spacing-80);
   }
   .grid-events {
