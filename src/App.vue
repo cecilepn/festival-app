@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { useFetchData } from './composables/useFetchData'
-  const { error, artists } = useFetchData()
+  import { useArtists } from './composables/useArtists'
+  const { error, artists } = useArtists()
 </script>
 
 <template>
