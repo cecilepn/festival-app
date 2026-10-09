@@ -1,4 +1,7 @@
-:root {
+@theme {
+  /* Seules les couleurs du design system sont disponibles (bg-*, text-*, border-*…) */
+  --color-*: initial;
+
   /* Palettes — design tokens Figma */
   --color-blue-50: #ecf5fe;
   --color-blue-100: #d5e9fe;
@@ -36,10 +39,9 @@
   --color-green-900: #274a03;
   --color-green-950: #0d1801;
 
-  --color-base-black: #000;
-  --color-base-white: #fff;
-  --color-base-transparent: transparent;
-  --color-base-grey: #707275;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-grey: #707275;
 
   --color-success-50: #f6fef9;
   --color-success-200: #dcfae6;
@@ -52,4 +54,12 @@
   --color-error-400: #f3877f;
   --color-error-600: #d92d20;
   --color-error-800: #912018;
+
+  /* Couleurs sémantiques */
+  --color-primary: var(--color-blue-500);
+  --color-secondary: var(--color-pink-500);
+  --color-tertiary: var(--color-green-500);
+  --color-neutral: var(--color-grey);
+  --color-success: var(--color-success-600);
+  --color-error: var(--color-error-600);
 }

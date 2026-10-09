@@ -1,66 +1,34 @@
-@import url('./assets/styles/index.css');
+@import 'tailwindcss';
+@import './assets/styles/index.css';
 
-/* Variables globales */
-:root {
-  --color-primary: var(--color-blue-500);
-  --color-secondary: var(--color-pink-500);
-  --color-tertiary: var(--color-green-500);
-  --color-neutral: var(--color-base-grey);
-  --color-white: var(--color-base-white);
-  --color-black: var(--color-base-black);
-  --color-success: var(--color-success-600);
-  --color-error: var(--color-error-600);
+@layer components {
+  .link {
+    @apply text-label;
+    text-decoration: none;
+  }
 
-  --font-quasimoda: 'Quasimoda', sans-serif;
+  .link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: all 0.8s ease;
+  }
 
-  --spacing-8: 8px;
-  --spacing-16: 16px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-56: 56px;
-  --spacing-64: 64px;
-  --spacing-72: 72px;
-  --spacing-80: 80px;
-  --spacing-88: 88px;
-  --spacing-96: 96px;
-  --spacing-104: 104px;
-  --spacing-112: 112px;
-  --spacing-120: 120px;
-}
-
-body {
-  font-family: var(--font-quasimoda);
-  font-size: var(--font-size-medium);
-  line-height: var(--line-height-medium);
-}
-
-.link {
-  text-decoration: none;
-}
-
-.link:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: all 0.8s ease;
-}
-
-.button-link {
-  background: var(--color-white);
-  border: 2px solid var(--color-black);
-  color: var(--color-black);
-  border-radius: 0.5rem;
-  transition:
-    background 0.2s,
-    color 0.2s;
-  text-decoration: none;
-  display: inline-block;
-}
-.button-link:hover,
-.button-link:focus {
-  color: var(--color-white);
-  background-color: var(--color-black);
-  border-color: var(--color-white);
+  .button-link {
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
+    color: var(--color-black);
+    border-radius: 0.5rem;
+    transition:
+      background 0.2s,
+      color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .button-link:hover,
+  .button-link:focus {
+    color: var(--color-white);
+    background-color: var(--color-black);
+    border-color: var(--color-white);
+  }
 }

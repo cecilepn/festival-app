@@ -1,24 +1,54 @@
-:root {
-  /* Grille desktop — design tokens Figma */
+@theme {
+  /* Police — font-sans, appliquée par défaut à toute la page */
+  --font-sans: 'Quasimoda', sans-serif;
+
+  /* Graisses propres à Quasimoda (les autres suivent l'échelle Tailwind) */
+  --font-weight-hairline: 100;
+  --font-weight-thin: 200;
+  --font-weight-extralight: 250;
+  --font-weight-heavy: 950;
+
+  /* Espacements — 1 unité = 1px, comme dans Figma : gap-24 → 24px, p-8 → 8px.
+     Échelle du design system : 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120 */
+  --spacing: 1px;
+
+  /* Grille desktop — design tokens Figma (classe grid-desktop) */
   --grid-desktop-columns: 8;
   --grid-desktop-gutter: 24px;
   --grid-desktop-offset: 32px;
 
-  /* Typographies — design tokens Figma */
-  --font-size-heading-1: 60px;
-  --line-height-heading-1: 64px;
-  --font-size-heading-1-semi-bold: 40px;
-  --line-height-heading-1-semi-bold: 38px;
-  --font-size-heading-2: 40px;
-  --line-height-heading-2: 44px;
-  --font-size-heading-3: 32px;
-  --line-height-heading-3: 36px;
-  --font-size-large: 20px;
-  --line-height-large: 24px;
-  --font-size-medium: 16px;
-  --line-height-medium: 20px;
-  --font-size-small: 14px;
-  --line-height-small: 16px;
-  --font-size-label: 12px;
-  --line-height-label: 14px;
+  /* Typographies — design tokens Figma (text-h1, text-body-m…) */
+  --text-*: initial;
+
+  --text-h1: 60px;
+  --text-h1--line-height: 64px;
+  --text-h1--font-weight: 700;
+  --text-h1-semi-bold: 40px;
+  --text-h1-semi-bold--line-height: 38px;
+  --text-h1-semi-bold--font-weight: 600;
+  --text-h2: 40px;
+  --text-h2--line-height: 44px;
+  --text-h2--font-weight: 700;
+  --text-h3: 32px;
+  --text-h3--line-height: 36px;
+  --text-h3--font-weight: 600;
+  --text-body-l: 20px;
+  --text-body-l--line-height: 24px;
+  --text-body-l--font-weight: 400;
+  --text-body-m: 16px;
+  --text-body-m--line-height: 20px;
+  --text-body-m--font-weight: 400;
+  --text-body-s: 14px;
+  --text-body-s--line-height: 16px;
+  --text-body-s--font-weight: 400;
+  --text-label: 12px;
+  --text-label--line-height: 14px;
+  --text-label--font-weight: 400;
+}
+
+@utility grid-desktop {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-desktop-columns), minmax(0, 1fr));
+  gap: var(--grid-desktop-gutter);
+  padding-inline: var(--grid-desktop-offset);
 }
