@@ -79,8 +79,8 @@ export async function getVisitor(id: string) {
   return data
 }
 
-export async function saveVisitor(visitor: TablesInsert<'visitors'>) {
-  const { data, error } = await supabase.from('visitors').upsert(visitor).select().single()
+export async function createVisitor(visitor: TablesInsert<'visitors'>) {
+  const { data, error } = await supabase.from('visitors').insert(visitor).select().single()
   if (error) throw new Error(error.message)
   return data
 }
