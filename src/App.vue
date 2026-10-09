@@ -1,30 +1,6 @@
 <script setup lang="ts">
-  import { onMounted, ref } from 'vue'
-  import { supabase } from './lib/supabaseClient'
-
-  type Artist = {
-    id: number
-    name: string
-    description: string
-  }
-
-  const artists = ref<Artist[]>([])
-  const error = ref<string | null>(null)
-
-  async function getArtists() {
-    const { data, error: fetchError } = await supabase.from('artists').select()
-
-    if (fetchError) {
-      error.value = fetchError.message
-      return
-    }
-
-    artists.value = data
-  }
-
-  onMounted(() => {
-    getArtists()
-  })
+  import { useFetchData } from './composables/useFetchData'
+  const { error, artists } = useFetchData()
 </script>
 
 <template>
