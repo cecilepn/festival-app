@@ -9,3 +9,7 @@ export type Order = Tables<'orders'>
 export type Pass = Tables<'passes'>
 export type Subscriber = Tables<'subscribers'>
 export type Visitor = Tables<'visitors'>
+export type EventWithDetails = FestivalEvent & {
+  venues: Venue
+  artists: Artist[]
+}
