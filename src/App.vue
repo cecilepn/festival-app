@@ -2,41 +2,38 @@
   import { onMounted, ref } from 'vue'
   import { supabase } from './lib/supabaseClient'
 
-  type Instrument = {
+  type Artist = {
     id: number
     name: string
+    description: string
   }
 
-  const instruments = ref<Instrument[]>([])
+  const artists = ref<Artist[]>([])
   const error = ref<string | null>(null)
 
-  async function getInstruments() {
-    const { data, error: fetchError } = await supabase
-      .from('instruments')
-      .select()
+  async function getArtists() {
+    const { data, error: fetchError } = await supabase.from('artists').select()
+    console.log({ data })
 
     if (fetchError) {
       error.value = fetchError.message
       return
     }
 
-    instruments.value = data
+    artists.value = data
   }
 
   onMounted(() => {
-    getInstruments()
+    getArtists()
   })
 </script>
 
 <template>
-  <Menu />
-  <RouterView />
-  <Newsletter />
-  <Footer />
+  <p v-if="error">Error loading artists: {{ error }}</p>
+  <ul v-else>
+    <li v-for="artist in artists" :key="artist.id">
+      {{ artist.name }}
+      {{ artist.description }}
+    </li>
+  </ul>
 </template>
-
-<script setup lang="ts">
-  import Menu from './components/Menu.vue'
-  import Footer from './components/Footer.vue'
-  import Newsletter from './components/Newsletter.vue'
-</script>
