@@ -1,9 +1,9 @@
 import { onMounted, ref } from 'vue'
-import { getArtists } from '@/lib/handlers'
-import type { Artist } from '@/types'
+import { getEvents } from '@/lib/handlers'
+import type { EventWithDetails } from '@/types'
 
-export function useArtists() {
-  const artists = ref<Artist[]>([])
+export function useEvents() {
+  const events = ref<EventWithDetails[]>([])
   const loading = ref(false)
   const error = ref<string | null>(null)
 
@@ -11,7 +11,7 @@ export function useArtists() {
     loading.value = true
     error.value = null
     try {
-      artists.value = await getArtists()
+      events.value = await getEvents()
     } catch (e) {
       error.value = (e as Error).message
     } finally {
@@ -21,5 +21,5 @@ export function useArtists() {
 
   onMounted(refresh)
 
-  return { artists, loading, error, refresh }
+  return { events, loading, error, refresh }
 }

@@ -1,5 +1,5 @@
 import { supabase } from './supabaseClient'
-import type { TablesInsert } from '../types/database'
+import type { TablesInsert } from '@/types/database'
 
 // Artists
 
