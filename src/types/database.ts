@@ -66,36 +66,36 @@ export type Database = {
         Row: {
           ends_at: string
           id: number
-          location_id: number
           name: string
           starts_at: string
           status: string
           type: string | null
+          venue_id: number
         }
         Insert: {
           ends_at: string
           id?: number
-          location_id: number
           name: string
           starts_at: string
           status?: string
           type?: string | null
+          venue_id: number
         }
         Update: {
           ends_at?: string
           id?: number
-          location_id?: number
           name?: string
           starts_at?: string
           status?: string
           type?: string | null
+          venue_id?: number
         }
         Relationships: [
           {
-            foreignKeyName: "events_location_id_fkey"
-            columns: ["location_id"]
+            foreignKeyName: "events_venue_id_fkey"
+            columns: ["venue_id"]
             isOneToOne: false
-            referencedRelation: "locations"
+            referencedRelation: "venues"
             referencedColumns: ["id"]
           },
         ]
@@ -118,21 +118,6 @@ export type Database = {
           content?: string | null
           id?: number
           title?: string
-        }
-        Relationships: []
-      }
-      locations: {
-        Row: {
-          id: number
-          name: string
-        }
-        Insert: {
-          id?: number
-          name: string
-        }
-        Update: {
-          id?: number
-          name?: string
         }
         Relationships: []
       }
@@ -223,6 +208,21 @@ export type Database = {
           email?: string
           id?: never
           subscribed_at?: string
+        }
+        Relationships: []
+      }
+      venues: {
+        Row: {
+          id: number
+          name: string
+        }
+        Insert: {
+          id?: number
+          name: string
+        }
+        Update: {
+          id?: number
+          name?: string
         }
         Relationships: []
       }
