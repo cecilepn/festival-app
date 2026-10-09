@@ -13,7 +13,6 @@
 
   async function getArtists() {
     const { data, error: fetchError } = await supabase.from('artists').select()
-    console.log({ data })
 
     if (fetchError) {
       error.value = fetchError.message
