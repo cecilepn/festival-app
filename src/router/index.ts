@@ -11,6 +11,11 @@ const router = createRouter({
       path: '/programmation',
       name: 'programmation',
       component: () => import('@/pages/Programmation.vue')
+    },
+    {
+      path: '/programmation/:id',
+      name: 'evenement',
+      component: () => import('@/pages/Evenement.vue')
     }
   ]
 })

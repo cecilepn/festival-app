@@ -1,23 +1,10 @@
 <script setup lang="ts">
+  import { formatTime, statusLabels } from '@/lib/eventFormat'
   import type { EventWithDetails } from '@/types'
 
   defineProps<{
     event: EventWithDetails
   }>()
-
-  const statusLabels: Record<string, string> = {
-    sold_out: 'Complet',
-    cancelled: 'Annulé'
-  }
-
-  const timeFormatter = new Intl.DateTimeFormat('fr-FR', {
-    hour: '2-digit',
-    minute: '2-digit'
-  })
-
-  function formatTime(date: string) {
-    return timeFormatter.format(new Date(date))
-  }
 </script>
 
 <template>
