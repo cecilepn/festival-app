@@ -1,16 +1,11 @@
 <script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
+  import { RouterView } from 'vue-router'
   import Footer from '@/components/Layout/Footer.vue'
+  import Header from './components/Layout/Header.vue'
 </script>
 
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/">Eclosion</RouterLink>
-      <RouterLink to="/programmation">Programmation</RouterLink>
-      <RouterLink to="/artistes">Artistes</RouterLink>
-    </nav>
-  </header>
+  <Header />
 
   <main>
     <RouterView />
