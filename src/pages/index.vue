@@ -24,7 +24,9 @@
   <section>
     <h1>Eclosion Festival</h1>
     <p v-if="festivalDates">{{ festivalDates }}</p>
-    <RouterLink :to="{ name: 'programmation' }">Voir la programmation</RouterLink>
+    <RouterLink :to="{ name: 'programmation' }"
+      >Voir la programmation</RouterLink
+    >
     <RouterLink :to="{ name: 'artistes' }">Voir les artistes</RouterLink>
   </section>
 
