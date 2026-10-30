@@ -65,6 +65,18 @@ export async function getPasses() {
   return data
 }
 
+// Sections
+
+export async function getSections(page: string) {
+  const { data, error } = await supabase
+    .from('sections')
+    .select()
+    .eq('page', page)
+    .order('position')
+  if (error) throw new Error(error.message)
+  return data
+}
+
 // Subscribers
 
 export async function addSubscriber(email: string) {

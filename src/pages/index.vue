@@ -2,10 +2,13 @@
   import { computed } from 'vue'
   import ArtistCard from '@/components/Artist/Card.vue'
   import EventCard from '@/components/Event/Card.vue'
+  import SectionZone from '@/components/Section/Zone.vue'
   import { useArtists } from '@/composables/useArtists'
   import { useEvents } from '@/composables/useEvents'
+  import { useSections } from '@/composables/useSections'
   import { formatDay } from '@/lib/eventFormat'
 
+  const { sections, loading: sectionsLoading } = useSections('home')
   const { events, loading: eventsLoading, error: eventsError } = useEvents()
   const { artists, loading: artistsLoading, error: artistsError } = useArtists()
 
@@ -21,7 +24,9 @@
 </script>
 
 <template>
-  <section>
+  <SectionZone v-if="sections.length" :sections="sections" />
+
+  <section v-else-if="!sectionsLoading">
     <h1>Eclosion Festival</h1>
     <p v-if="festivalDates">{{ festivalDates }}</p>
     <RouterLink :to="{ name: 'programmation' }">Voir la programmation</RouterLink>
