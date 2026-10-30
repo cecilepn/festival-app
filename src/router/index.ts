@@ -27,6 +27,16 @@ const router = createRouter({
       path: '/artistes/:id',
       name: 'artiste',
       component: () => import('@/pages/Artiste.vue')
+    },
+    {
+      path: '/mentions-legales',
+      name: 'mentions legales',
+      component: () => import('@/pages/LegalNotice.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/pages/NotFound.vue')
     }
   ]
 })
