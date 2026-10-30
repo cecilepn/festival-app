@@ -7,6 +7,7 @@ export type Info = Tables<'infos'>
 export type Venue = Tables<'venues'>
 export type Order = Tables<'orders'>
 export type Pass = Tables<'passes'>
+export type Section = Tables<'sections'>
 export type Subscriber = Tables<'subscribers'>
 export type Visitor = Tables<'visitors'>
 export type EventWithDetails = FestivalEvent & {

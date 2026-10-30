@@ -196,6 +196,51 @@ export type Database = {
         }
         Relationships: []
       }
+      sections: {
+        Row: {
+          body: string | null
+          button_label: string | null
+          button_url: string | null
+          chapo: string | null
+          id: number
+          image_alt: string | null
+          image_path: string | null
+          page: string
+          position: number
+          subtitle: string | null
+          title: string
+          variation: string
+        }
+        Insert: {
+          body?: string | null
+          button_label?: string | null
+          button_url?: string | null
+          chapo?: string | null
+          id?: never
+          image_alt?: string | null
+          image_path?: string | null
+          page: string
+          position?: number
+          subtitle?: string | null
+          title: string
+          variation: string
+        }
+        Update: {
+          body?: string | null
+          button_label?: string | null
+          button_url?: string | null
+          chapo?: string | null
+          id?: never
+          image_alt?: string | null
+          image_path?: string | null
+          page?: string
+          position?: number
+          subtitle?: string | null
+          title?: string
+          variation?: string
+        }
+        Relationships: []
+      }
       subscribers: {
         Row: {
           email: string
