@@ -14,6 +14,7 @@ export async function getArtistById(id: number) {
     .from('artists')
     .select('*, events(*, venues(*))')
     .eq('id', id)
+    .order('starts_at', { referencedTable: 'events' })
     .maybeSingle()
   if (error) throw new Error(error.message)
   return data

@@ -14,6 +14,12 @@ export const statusLabels: Record<string, string> = {
   cancelled: 'Annulé'
 }
 
+export const typeLabels: Record<string, string> = {
+  concert: 'Concert',
+  dj_set: 'DJ set',
+  workshop: 'Atelier'
+}
+
 export function formatDay(date: string) {
   return dayFormatter.format(new Date(date))
 }
