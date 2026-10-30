@@ -18,16 +18,19 @@ export type Database = {
         Row: {
           description: string | null
           id: number
+          image_path: string | null
           name: string
         }
         Insert: {
           description?: string | null
           id?: number
+          image_path?: string | null
           name: string
         }
         Update: {
           description?: string | null
           id?: number
+          image_path?: string | null
           name?: string
         }
         Relationships: []
