@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useRoute } from 'vue-router'
   import { useEvent } from '@/composables/useEvent'
-  import { formatDay, formatTime, statusLabels } from '@/lib/eventFormat'
+  import { formatDay, formatTime, statusLabels, typeLabels } from '@/lib/eventFormat'
 
   const route = useRoute()
   const { event, loading, error } = useEvent(Number(route.params.id))
@@ -21,7 +21,7 @@
     <p v-if="statusLabels[event.status]">
       {{ statusLabels[event.status] }}
     </p>
-    <p v-if="event.type">{{ event.type }}</p>
+    <p v-if="event.type">{{ typeLabels[event.type] ?? event.type }}</p>
     <p>
       {{ formatDay(event.starts_at) }},
       <time :datetime="event.starts_at">
@@ -38,7 +38,11 @@
       <h2>Artistes</h2>
       <ul>
         <li v-for="artist in event.artists" :key="artist.id">
-          <h3>{{ artist.name }}</h3>
+          <h3>
+            <RouterLink :to="{ name: 'artiste', params: { id: artist.id } }">
+              {{ artist.name }}
+            </RouterLink>
+          </h3>
           <p v-if="artist.description">{{ artist.description }}</p>
         </li>
       </ul>

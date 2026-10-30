@@ -13,3 +13,6 @@ export type EventWithDetails = FestivalEvent & {
   venues: Venue
   artists: Artist[]
 }
+export type ArtistWithEvents = Artist & {
+  events: (FestivalEvent & { venues: Venue })[]
+}

@@ -5,7 +5,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/programmation'
+      name: 'home',
+      component: () => import('@/pages/index.vue')
     },
     {
       path: '/programmation',
@@ -16,6 +17,16 @@ const router = createRouter({
       path: '/programmation/:id',
       name: 'evenement',
       component: () => import('@/pages/Evenement.vue')
+    },
+    {
+      path: '/artistes',
+      name: 'artistes',
+      component: () => import('@/pages/Artistes.vue')
+    },
+    {
+      path: '/artistes/:id',
+      name: 'artiste',
+      component: () => import('@/pages/Artiste.vue')
     }
   ]
 })
