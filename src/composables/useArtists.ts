@@ -4,7 +4,7 @@ import type { Artist } from '@/types'
 
 export function useArtists() {
   const artists = ref<Artist[]>([])
-  const loading = ref(false)
+  const loading = ref(true)
   const error = ref<string | null>(null)
 
   async function refresh() {

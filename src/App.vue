@@ -9,7 +9,7 @@
 <template>
   <Preloader />
   <Header />
-  <main>
+  <main class="min-h-screen">
     <RouterView />
   </main>
   <Newsletter />

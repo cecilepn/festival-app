@@ -4,7 +4,7 @@ import type { EventWithDetails } from '@/types'
 
 export function useEvents() {
   const events = ref<EventWithDetails[]>([])
-  const loading = ref(false)
+  const loading = ref(true)
   const error = ref<string | null>(null)
 
   async function refresh() {
