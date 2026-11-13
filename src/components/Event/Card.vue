@@ -36,7 +36,7 @@
     </p>
 
     <div
-      class="absolute inset-x-0 bottom-0 flex flex-col gap-4 bg-black/30 px-24 pb-16 pt-24 text-white backdrop-blur-sm">
+      class="absolute inset-x-0 bottom-0 flex flex-col gap-4 bg-black/55 px-24 pb-16 pt-24 text-white backdrop-blur-sm">
       <h3 class="truncate">{{ event.name }}</h3>
       <p class="text-label">
         <span v-if="statusLabels[event.status]" class="font-semibold">

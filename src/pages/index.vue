@@ -31,16 +31,17 @@
     <RouterLink :to="{ name: 'programmation' }" class="button">En découvrir plus</RouterLink>
   </section>
 
-  <section>
-    <h2>Artistes</h2>
+  <section class="flex flex-col items-center gap-64 px-16 pb-96">
+    <h2 class="text-center">Artistes</h2>
     <p v-if="artistsLoading">Chargement…</p>
     <p v-else-if="artistsError">Error loading artists: {{ artistsError }}</p>
-    <ul v-else>
+    <ul v-else class="grid w-full gap-24 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="artist in previewArtists" :key="artist.id">
-        <RouterLink :to="{ name: 'artiste', params: { id: artist.id } }">
+        <RouterLink :to="{ name: 'artiste', params: { id: artist.id } }" class="block">
           <ArtistCard :artist="artist" />
         </RouterLink>
       </li>
     </ul>
+    <RouterLink :to="{ name: 'artistes' }" class="button">Voir tous les artistes</RouterLink>
   </section>
 </template>
