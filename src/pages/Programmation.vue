@@ -5,8 +5,7 @@
   import EventCard from '@/components/Event/Card.vue'
   import { useEvents } from '@/composables/useEvents'
   import { useVenues } from '@/composables/useVenues'
-  import { formatDay } from '@/lib/eventFormat'
-  import type { EventWithDetails } from '@/types'
+  import { formatDay, formatShortDay } from '@/lib/eventFormat'
 
   const { events, loading, error } = useEvents()
   const { venues, error: venuesError } = useVenues()
@@ -27,9 +26,17 @@
     set: lieu => updateFilters({ lieu: lieu === null ? undefined : String(lieu) })
   })
 
-  const dayOptions = computed(() => [
-    ...new Set(events.value.map(event => formatDay(event.starts_at)))
-  ])
+  const dayOptions = computed(() => {
+    const options = new Map<string, string>()
+    for (const event of events.value) {
+      options.set(formatDay(event.starts_at), formatShortDay(event.starts_at))
+    }
+    return [...options].map(([value, label]) => ({ value, label }))
+  })
+
+  function toggleDay(day: string) {
+    selectedDay.value = selectedDay.value === day ? '' : day
+  }
 
   const filteredEvents = computed(() =>
     events.value.filter(
@@ -38,63 +45,47 @@
         (selectedVenueId.value === null || event.venue_id === selectedVenueId.value)
     )
   )
-
-  type Day = {
-    label: string
-    events: EventWithDetails[]
-  }
-
-  const days = computed(() => {
-    const result: Day[] = []
-    for (const event of filteredEvents.value) {
-      const label = formatDay(event.starts_at)
-      const existingDay = result.find(day => day.label === label)
-      if (existingDay) {
-        existingDay.events.push(event)
-      } else {
-        result.push({ label, events: [event] })
-      }
-    }
-    return result
-  })
 </script>
 
 <template>
-  <h1>Programmation</h1>
+  <div class="flex flex-col gap-48 px-16 pt-64">
+    <h1>Programmation</h1>
 
-  <form v-if="events.length" @submit.prevent>
-    <label>
-      Jour
-      <select v-model="selectedDay">
-        <option value="">Tous les jours</option>
-        <option v-for="day in dayOptions" :key="day" :value="day">{{ day }}</option>
-      </select>
-    </label>
-    <label>
-      Lieu
-      <select v-model="selectedVenueId">
+    <div v-if="events.length" role="group" aria-label="Filtrer la programmation" class="flex flex-wrap items-center gap-16">
+      <label class="sr-only" for="venue-filter">Lieu</label>
+      <select id="venue-filter" v-model="selectedVenueId" class="pill cursor-pointer">
         <option :value="null">Tous les lieux</option>
         <option v-for="venue in venues" :key="venue.id" :value="venue.id">
           {{ venue.name }}
         </option>
       </select>
-    </label>
-    <p v-if="venuesError">Error loading venues: {{ venuesError }}</p>
-  </form>
+      <button
+        v-for="day in dayOptions"
+        :key="day.value"
+        type="button"
+        class="pill cursor-pointer"
+        :aria-pressed="selectedDay === day.value"
+        @click="toggleDay(day.value)">
+        {{ day.label }}
+      </button>
+      <p v-if="venuesError" class="text-body-s text-error">
+        Error loading venues: {{ venuesError }}
+      </p>
+    </div>
 
-  <p v-if="loading">Chargement…</p>
-  <p v-else-if="error">Error loading events: {{ error }}</p>
-  <p v-else-if="!events.length">Aucun événement pour le moment.</p>
-  <p v-else-if="!days.length">Aucun événement pour ces filtres.</p>
+    <p v-if="loading">Chargement…</p>
+    <p v-else-if="error">Error loading events: {{ error }}</p>
+    <p v-else-if="!events.length">Aucun événement pour le moment.</p>
+    <p v-else-if="!filteredEvents.length">Aucun événement pour ces filtres.</p>
 
-  <section v-for="day in days" v-else :key="day.label">
-    <h2>{{ day.label }}</h2>
-    <ul>
-      <li v-for="event in day.events" :key="event.id">
-        <RouterLink :to="{ name: 'evenement', params: { id: event.id }, query: route.query }">
+    <ul v-else class="grid gap-24 sm:grid-cols-2 lg:grid-cols-3">
+      <li v-for="event in filteredEvents" :key="event.id">
+        <RouterLink
+          :to="{ name: 'evenement', params: { id: event.id }, query: route.query }"
+          class="block">
           <EventCard :event="event" />
         </RouterLink>
       </li>
     </ul>
-  </section>
+  </div>
 </template>

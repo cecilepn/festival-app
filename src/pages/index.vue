@@ -6,46 +6,29 @@
   import { useArtists } from '@/composables/useArtists'
   import { useEvents } from '@/composables/useEvents'
   import { useSections } from '@/composables/useSections'
-  import { formatDay } from '@/lib/eventFormat'
 
-  const { sections, loading: sectionsLoading } = useSections('home')
+  const { sections } = useSections('home')
   const { events, loading: eventsLoading, error: eventsError } = useEvents()
   const { artists, loading: artistsLoading, error: artistsError } = useArtists()
 
-  const festivalDates = computed(() => {
-    const firstEvent = events.value[0]
-    const lastEvent = events.value[events.value.length - 1]
-    if (!firstEvent || !lastEvent) return ''
-    return `Du ${formatDay(firstEvent.starts_at)} au ${formatDay(lastEvent.starts_at)}`
-  })
-
-  const previewEvents = computed(() => events.value.slice(0, 3))
+  const previewEvents = computed(() => events.value.slice(0, 6))
   const previewArtists = computed(() => artists.value.slice(0, 3))
 </script>
 
 <template>
   <SectionZone v-if="sections.length" :sections="sections" />
-
-  <section v-else-if="!sectionsLoading">
-    <h1>Eclosion Festival</h1>
-    <p v-if="festivalDates">{{ festivalDates }}</p>
-    <RouterLink :to="{ name: 'programmation' }"
-      >Voir la programmation</RouterLink
-    >
-    <RouterLink :to="{ name: 'artistes' }">Voir les artistes</RouterLink>
-  </section>
-
-  <section>
-    <h2>Programmation</h2>
+  <section class="flex flex-col items-center gap-64 px-16 py-96">
+    <h2 class="text-center">Programmation</h2>
     <p v-if="eventsLoading">Chargement…</p>
     <p v-else-if="eventsError">Error loading events: {{ eventsError }}</p>
-    <ul v-else>
+    <ul v-else class="grid w-full gap-24 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="event in previewEvents" :key="event.id">
-        <RouterLink :to="{ name: 'evenement', params: { id: event.id } }">
+        <RouterLink :to="{ name: 'evenement', params: { id: event.id } }" class="block">
           <EventCard :event="event" />
         </RouterLink>
       </li>
     </ul>
+    <RouterLink :to="{ name: 'programmation' }" class="button">En découvrir plus</RouterLink>
   </section>
 
   <section>

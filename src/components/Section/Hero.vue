@@ -8,17 +8,17 @@
 </script>
 
 <template>
-  <section class="h-[80vh] w-full relative">
+  <section class="relative flex min-h-480 items-center justify-center overflow-hidden bg-black lg:h-[80vh]">
     <img
       v-if="section.image_path"
       :src="getImageUrl(section.image_path)"
       :alt="section.image_alt ?? ''"
-      class="h-full w-full object-cover" />
-    <div
-      class="absolute flex flex-col gap-48 inset-0 h-fit text-center text-white -translate-y-1/2 top-1/2">
-      <p>{{ section.chapo }}</p>
+      class="absolute inset-0 size-full object-cover" />
+    <div class="absolute inset-0 bg-black/30" aria-hidden="true"></div>
+    <div class="relative flex flex-col items-center gap-32 px-16 py-64 text-center text-white">
+      <p class="text-body-l">{{ section.chapo }}</p>
       <h1>{{ section.title }}</h1>
-      <p>{{ section.subtitle }}</p>
+      <p class="text-body-l">{{ section.subtitle }}</p>
     </div>
   </section>
 </template>
