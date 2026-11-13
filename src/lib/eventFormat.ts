@@ -20,21 +20,14 @@ export const typeLabels: Record<string, string> = {
   workshop: 'Atelier'
 }
 
-const dateBadgeFormatter = new Intl.DateTimeFormat('fr-FR', {
+const dateFormatter = new Intl.DateTimeFormat('fr-FR', {
   day: '2-digit',
   month: 'long',
-  year: '2-digit'
+  year: 'numeric'
 })
 
-export function formatDateBadge(date: string) {
-  const parts = dateBadgeFormatter.formatToParts(new Date(date))
-  const part = (type: string) => parts.find(p => p.type === type)?.value ?? ''
-  const month = part('month')
-  return {
-    day: part('day'),
-    month: month.charAt(0).toUpperCase() + month.slice(1),
-    year: part('year')
-  }
+export function formatDate(date: string) {
+  return dateFormatter.format(new Date(date))
 }
 
 const shortDayFormatter = new Intl.DateTimeFormat('fr-FR', {

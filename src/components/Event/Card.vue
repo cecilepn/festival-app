@@ -1,14 +1,13 @@
 <script setup lang="ts">
   import { computed } from 'vue'
   import { getImageUrl } from '@/lib/getImageUrl'
-  import { formatDateBadge, formatTime, statusLabels, typeLabels } from '@/lib/eventFormat'
+  import { formatDate, formatTime, statusLabels, typeLabels } from '@/lib/eventFormat'
   import type { EventWithDetails } from '@/types'
 
   const props = defineProps<{
     event: EventWithDetails
   }>()
 
-  const date = computed(() => formatDateBadge(props.event.starts_at))
   const imagePath = computed(() => props.event.artists.find(artist => artist.image_path)?.image_path)
 </script>
 
@@ -23,10 +22,8 @@
 
     <time
       :datetime="event.starts_at"
-      class="absolute left-0 top-0 flex w-60 flex-col items-center gap-4 bg-blue-200 py-16 text-body-m text-blue-500">
-      <span>{{ date.day }}</span>
-      <span class="font-semibold">{{ date.month }}</span>
-      <span>{{ date.year }}</span>
+      class="absolute left-0 top-0 bg-blue-200 px-16 py-8 text-body-m font-semibold text-blue-500">
+      {{ formatDate(event.starts_at) }}
     </time>
 
     <p
