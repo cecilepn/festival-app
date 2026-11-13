@@ -32,7 +32,7 @@
       class="flex flex-wrap items-center justify-between gap-16">
       <RouterLink to="/" class="shrink-0">
         <span class="sr-only">Eclosion, accueil</span>
-        <img src="/logo.png" alt="" class="size-56" />
+        <img src="/logo.svg" alt="" class="size-56" />
       </RouterLink>
 
       <ul
