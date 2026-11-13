@@ -7,8 +7,8 @@
 </script>
 
 <template>
-  <section>
+  <section class="flex flex-col gap-32 px-16 py-64 lg:px-48">
     <h2>{{ section.title }}</h2>
-    <p class="whitespace-pre-line">{{ section.body }}</p>
+    <p class="max-w-[720px] whitespace-pre-line">{{ section.body }}</p>
   </section>
 </template>

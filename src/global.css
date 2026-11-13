@@ -4,7 +4,6 @@
 @layer components {
   .link {
     @apply text-label;
-    text-decoration: none;
   }
 
   .link:hover {
@@ -14,21 +13,46 @@
     transition: all 0.8s ease;
   }
 
-  .button-link {
-    background: var(--color-white);
-    border: 2px solid var(--color-black);
-    color: var(--color-black);
-    border-radius: 0.5rem;
-    transition:
-      background 0.2s,
-      color 0.2s;
-    text-decoration: none;
-    display: inline-block;
+  /* Boutons — design system Figma (Components / Boutons) */
+  .button {
+    @apply inline-flex items-center justify-center gap-8 rounded-full border-2 border-black bg-primary px-32 py-10 text-body-m font-medium text-black no-underline shadow-[6px_6px_0_var(--color-green-950)] transition-colors duration-150 ease-in-out;
   }
-  .button-link:hover,
-  .button-link:focus {
-    color: var(--color-white);
-    background-color: var(--color-black);
-    border-color: var(--color-white);
+  .button:hover {
+    @apply bg-hover;
+  }
+  .button:active {
+    @apply bg-blue-400;
+  }
+  .button:focus-visible {
+    @apply border-blue-500 shadow-[0_0_0_4px_var(--color-blue-300)];
+  }
+  .button:disabled,
+  .button[aria-disabled='true'] {
+    @apply bg-white text-grey;
+  }
+
+  .button-outline {
+    @apply inline-flex items-center justify-center gap-8 rounded-full border-2 border-blue-300 bg-white px-32 py-10 text-body-m font-medium text-blue-500 no-underline transition-colors duration-150 ease-in-out;
+  }
+  .button-outline:hover {
+    @apply bg-hover;
+  }
+  .button-outline:focus-visible {
+    @apply border-blue-500 shadow-[0_0_0_4px_var(--color-blue-300)];
+  }
+  .button-outline:disabled,
+  .button-outline[aria-disabled='true'] {
+    @apply border-grey text-grey;
+  }
+
+  /* Filtres de la programmation */
+  .pill {
+    @apply inline-flex items-center gap-8 rounded-full border border-black bg-white px-24 py-6 text-body-s text-black transition-colors duration-150;
+  }
+  .pill:hover {
+    @apply bg-hover;
+  }
+  .pill[aria-pressed='true'] {
+    @apply border-blue-300 text-blue-500;
   }
 }

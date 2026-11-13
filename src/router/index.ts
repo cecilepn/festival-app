@@ -29,6 +29,16 @@ const router = createRouter({
       component: () => import('@/pages/Artiste.vue')
     },
     {
+      path: '/infos-pratiques',
+      name: 'Infos Pratiques',
+      component: () => import('@/pages/Infos.vue')
+    },
+    {
+      path: '/notre-histoire',
+      name: 'Notre Histoire',
+      component: () => import('@/pages/History.vue')
+    },
+    {
       path: '/mentions-legales',
       name: 'mentions legales',
       component: () => import('@/pages/LegalNotice.vue')

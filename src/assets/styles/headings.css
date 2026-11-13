@@ -2,19 +2,20 @@
 @layer base {
   html,
   body {
-    @apply h-full w-full;
+    @apply h-full w-full text-body-m;
   }
 
   body {
-    @apply text-body-m;
+    @apply bg-white text-body-m text-black;
   }
 
+  /* Titres réduits sur mobile : la maquette n'existe qu'en desktop */
   h1 {
-    @apply text-h1 uppercase;
+    @apply text-h3 font-bold uppercase sm:text-h2 md:text-h1;
   }
 
   h2 {
-    @apply text-h2 uppercase;
+    @apply text-h3 uppercase md:text-h2;
   }
 
   h3 {
