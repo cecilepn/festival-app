@@ -30,17 +30,17 @@ const router = createRouter({
     },
     {
       path: '/infos-pratiques',
-      name: 'Infos Pratiques',
+      name: 'infos-pratiques',
       component: () => import('@/pages/Infos.vue')
     },
     {
       path: '/notre-histoire',
-      name: 'Notre Histoire',
+      name: 'notre-histoire',
       component: () => import('@/pages/History.vue')
     },
     {
       path: '/mentions-legales',
-      name: 'mentions legales',
+      name: 'mentions-legales',
       component: () => import('@/pages/LegalNotice.vue')
     },
     {
