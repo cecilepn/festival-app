@@ -21,6 +21,7 @@
     <h2 class="text-center">Programmation</h2>
     <p v-if="eventsLoading">Chargement…</p>
     <p v-else-if="eventsError">Error loading events: {{ eventsError }}</p>
+    <p v-else-if="!events.length">Aucun événement pour le moment.</p>
     <ul v-else class="grid w-full gap-24 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="event in previewEvents" :key="event.id">
         <RouterLink :to="{ name: 'evenement', params: { id: event.id } }" class="block">
@@ -35,6 +36,7 @@
     <h2 class="text-center">Artistes</h2>
     <p v-if="artistsLoading">Chargement…</p>
     <p v-else-if="artistsError">Error loading artists: {{ artistsError }}</p>
+    <p v-else-if="!artists.length">Aucun artiste pour le moment.</p>
     <ul v-else class="grid w-full gap-24 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="artist in previewArtists" :key="artist.id">
         <RouterLink :to="{ name: 'artiste', params: { id: artist.id } }" class="block">
