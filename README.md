@@ -14,13 +14,12 @@ Application web du festival fictif **Éclosion**, réalisée dans le cadre du ma
 
 ## Scripts
 
-| Commande          | Description                                                          |
-| ----------------- | -------------------------------------------------------------------- |
-| `npm run dev`     | Lance le serveur de développement Vite.                              |
-| `npm run build`   | Vérifie les types puis génère la version de production dans `dist/`. |
-| `npm run preview` | Prévisualise localement le build de production.                      |
-| `npm run types`   | Régénère `src/types/database.ts` à partir du schéma Supabase.        |
-| `npm run test`    | Exécute les tests Vitest.                                            |
+| Commande        | Description                                                          |
+| --------------- | -------------------------------------------------------------------- |
+| `npm run dev`   | Lance le serveur de développement Vite.                              |
+| `npm run build` | Vérifie les types puis génère la version de production dans `dist/`. |
+| `npm run types` | Régénère `src/types/database.ts` à partir du schéma Supabase.        |
+| `npm run test`  | Exécute les tests Vitest.                                            |
 
 ## Structure du projet
 
