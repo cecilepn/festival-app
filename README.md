@@ -46,7 +46,7 @@ src/
 │   └── useVenues.ts           # État réactif de la liste des lieux
 ├── lib/
 │   ├── supabaseClient.ts      # Initialisation du client Supabase typé
-│   ├── handlers.ts            # Tous les appels à la base de données
+│   ├── handlers/              # Appels à la base, un fichier par table (index.ts les réexporte)
 │   ├── eventFormat.ts         # Formatage des dates et libellés des événements
 │   └── getImageUrl.ts         # URL publique d’une image du bucket Supabase `images`
 ├── pages/                     # Une page par route (accueil, programmation, artistes…)
