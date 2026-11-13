@@ -3,7 +3,6 @@ import { formatDateBadge } from './eventFormat'
 
 describe('formatDateBadge', () => {
   it('splits a date into day, capitalized month and short year', () => {
-    // Midday UTC so the day stays the same whatever the machine's timezone
     expect(formatDateBadge('2027-05-07T12:00:00Z')).toEqual({
       day: '07',
       month: 'Mai',

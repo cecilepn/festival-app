@@ -8,14 +8,10 @@
 
 <template>
   <Preloader />
-
   <Header />
-
   <main>
     <RouterView />
   </main>
-
   <Newsletter />
-
   <Footer />
 </template>

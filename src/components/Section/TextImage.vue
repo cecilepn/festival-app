@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { getImageUrl } from '@/lib/getImageUrl'
   import type { Section } from '@/types'
-
   defineProps<{
     section: Section
   }>()

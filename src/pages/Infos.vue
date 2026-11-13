@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { useInfos } from '@/composables/useInfos'
-
   const { infos, loading, error } = useInfos()
 </script>
 
@@ -18,7 +17,9 @@
         :key="info.id"
         class="flex min-h-240 flex-col gap-16 rounded-br-[48px] bg-gradient-to-b from-blue-200 to-pink-200 p-32">
         <h2 class="text-h3 normal-case">{{ info.title }}</h2>
-        <p v-if="info.content" class="whitespace-pre-line">{{ info.content }}</p>
+        <p v-if="info.content" class="whitespace-pre-line">
+          {{ info.content }}
+        </p>
       </li>
     </ul>
   </div>
