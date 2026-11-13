@@ -13,6 +13,7 @@
       v-if="section.image_path"
       :src="getImageUrl(section.image_path)"
       :alt="section.image_alt ?? ''"
+      fetchpriority="high"
       class="absolute inset-0 size-full object-cover" />
     <div class="absolute inset-0 bg-black/30" aria-hidden="true"></div>
     <div
